@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  rag_app:
+    build: .
+    container_name: rag_langchain_app
+    ports:
+      - "8000:8000"
+      - "8501:8501"
+    volumes:
+      - .:/app
+    environment:
+      - OLLAMA_HOST=host.docker.internal  # connects container to local Ollama instance
+    depends_on: []
